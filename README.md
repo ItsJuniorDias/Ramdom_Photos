@@ -1,4 +1,5 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Ramdom_Photos
+🌹 Photo display app built with React Native 	
 
 # Getting Started
 
