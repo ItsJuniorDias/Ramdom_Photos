@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
@@ -16,19 +16,19 @@ export const Header = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-family: 'Nunito-SemiBold';
+  font-family: "Nunito-Bold";
   color: #2d2d35;
   font-size: 22px;
   margin-top: 32px;
 `;
 
 export const TitleThumbnail = styled.Text`
-  font-family: 'Nunito-Regular';
+  font-family: "Nunito-Regular";
   color: #f7f7f7;
   font-size: 18px;
 `;
 
-export const ContentItem = styled.TouchableOpacity`
+export const ContentItem = styled.View`
   padding: 16px;
 `;
 
@@ -58,13 +58,13 @@ export const ContentText = styled.View`
 export const GlasstText = styled.Text`
   color: white;
   font-size: 18px;
-  font-family: 'Nunito-Regular';
+  font-family: "Nunito-Regular";
 `;
 
 export const GlasstTextDescription = styled.Text`
   color: white;
   font-size: 16px;
-  font-family: 'Nunito-Regular';
+  font-family: "Nunito-Regular";
 `;
 
 export const Thumbnail = styled.Image`
@@ -72,4 +72,35 @@ export const Thumbnail = styled.Image`
   height: 32px;
   border-radius: 50%;
   margin-right: 8;
+`;
+
+export const ContentLiked = styled.View`
+  width: 88px;
+  height: 64px;
+  background-color: #ffffff;
+  border-top-right-radius: 32px;
+  border-top-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  border-bottom-left-radius: 32px;
+`;
+
+export const TouchableLiked = styled.TouchableOpacity`
+  width: 88px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 32px;
+  border-top-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  border-bottom-left-radius: 32px;
+`;
+
+export const ContainerLiked = styled.View`
+  width: 100%;
+  height: 256px;
+  padding-left: 43px;
+  padding-right: 16px;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
 `;
