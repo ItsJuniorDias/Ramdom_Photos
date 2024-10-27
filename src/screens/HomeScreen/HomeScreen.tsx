@@ -18,63 +18,11 @@ import {
   TouchableLiked,
   ContainerLiked,
 } from "./styles";
-
-const Item = ({
-  title,
-  titleDescription,
-  background,
-  thumbnail,
-  setIsLiked,
-  isLiked,
-}) => {
-  return (
-    <ContentItem>
-      <ImageBackground
-        source={{ uri: background }}
-        resizeMode="cover"
-        style={styles.image}
-        imageStyle={styles.imageBorder}
-      >
-        <View style={styles.darkGlassContainer}>
-          <Thumbnail
-            source={{
-              uri: `${thumbnail}`,
-            }}
-          />
-
-          <ContentText>
-            <GlasstText numberOfLines={1}>{title}</GlasstText>
-            <GlasstTextDescription numberOfLines={1}>
-              {titleDescription}
-            </GlasstTextDescription>
-          </ContentText>
-        </View>
-
-        <ContainerLiked>
-          <ContentLiked>
-            {isLiked ? (
-              <>
-                <TouchableLiked onPress={() => setIsLiked((props) => !props)}>
-                  <Icon name="heart" size={30} color="#fe034f" />
-                </TouchableLiked>
-              </>
-            ) : (
-              <>
-                <TouchableLiked onPress={() => setIsLiked((props) => !props)}>
-                  <Icon name="heart-fill" size={30} color="#fe034f" />
-                </TouchableLiked>
-              </>
-            )}
-          </ContentLiked>
-        </ContainerLiked>
-      </ImageBackground>
-    </ContentItem>
-  );
-};
+import { SafeAreaFrameContext } from "react-native-safe-area-context";
 
 export const HomeScreen = () => {
-  const [data, setData] = useState({});
-  const [isLiked, setIsLiked] = useState(false);
+  const [data, setData] = useState([]);
+  // const [isLiked, setIsLiked] = useState(true);
 
   const unsplashApi = {
     getRandomPhotos: async (count = 100, query = "flowers") => {
@@ -102,7 +50,12 @@ export const HomeScreen = () => {
       try {
         const randomPhotos = await unsplashApi.getRandomPhotos();
 
-        setData(randomPhotos);
+        const formatAddFavorite = randomPhotos.map((item) => ({
+          ...item,
+          favorite: false,
+        }));
+
+        setData(formatAddFavorite);
       } catch (error) {
         console.error("Failed to fetch photos:", error);
       }
@@ -111,9 +64,68 @@ export const HomeScreen = () => {
     fetchPhotos();
   }, []);
 
-  console.log(data, "RESPONSE DATA");
+  const Item = ({
+    id,
+    title,
+    titleDescription,
+    background,
+    thumbnail,
+    isFavorite,
+  }) => {
+    const onFavoriteToggle = (id) => {
+      setData((prevData) => {
+        return prevData.map((item) =>
+          item.id === id ? { ...item, favorite: !item.favorite } : item
+        );
+      });
+    };
 
-  console.log(isLiked, "LIKED");
+    return (
+      <ContentItem>
+        <ImageBackground
+          source={{ uri: background }}
+          resizeMode="cover"
+          style={styles.image}
+          imageStyle={styles.imageBorder}
+        >
+          <View style={styles.darkGlassContainer}>
+            <Thumbnail
+              source={{
+                uri: `${thumbnail}`,
+              }}
+            />
+
+            <ContentText>
+              <GlasstText numberOfLines={1}>{title}</GlasstText>
+              <GlasstTextDescription numberOfLines={1}>
+                {titleDescription}
+              </GlasstTextDescription>
+            </ContentText>
+          </View>
+
+          <ContainerLiked>
+            <ContentLiked>
+              {!isFavorite ? (
+                <>
+                  <TouchableLiked onPress={() => onFavoriteToggle(id)}>
+                    <Icon name="heart" size={30} color="#fe034f" />
+                  </TouchableLiked>
+                </>
+              ) : (
+                <>
+                  <TouchableLiked onPress={() => onFavoriteToggle(id)}>
+                    <Icon name="heart-fill" size={30} color="#fe034f" />
+                  </TouchableLiked>
+                </>
+              )}
+            </ContentLiked>
+          </ContainerLiked>
+        </ImageBackground>
+      </ContentItem>
+    );
+  };
+
+  console.log(data, "RESPONSE DATA");
 
   return (
     <Container>
@@ -125,12 +137,12 @@ export const HomeScreen = () => {
         data={data}
         renderItem={({ item }) => (
           <Item
+            id={item.id}
             title={item.user.first_name}
             background={item.links.download}
             thumbnail={item.user.profile_image.large}
             titleDescription={item.alt_description}
-            setIsLiked={setIsLiked}
-            isLiked={isLiked}
+            isFavorite={item.favorite}
           />
         )}
         keyExtractor={(item) => item.id}
