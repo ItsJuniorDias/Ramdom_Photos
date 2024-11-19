@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import {HomeScreen} from './src/screens';
+import { HomeScreen } from "./src/screens";
+import { Navigation } from "./src/routes";
 
 function App(): React.JSX.Element {
-  return <HomeScreen />;
+  return <Navigation />;
 }
 
 export default App;

@@ -28,7 +28,7 @@ export const TitleThumbnail = styled.Text`
   font-size: 18px;
 `;
 
-export const ContentItem = styled.View`
+export const ContentItem = styled.TouchableOpacity`
   padding: 16px;
 `;
 

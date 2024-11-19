@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FlatList, ImageBackground, StyleSheet, View } from "react-native";
 import axios from "axios";
 import Icon from "react-native-vector-icons/Octicons";
@@ -18,11 +18,21 @@ import {
   TouchableLiked,
   ContainerLiked,
 } from "./styles";
-import { SafeAreaFrameContext } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
+
+interface ItemProps {
+  id: string;
+  title: string;
+  titleDescription: string;
+  background: string;
+  thumbnail: string;
+  isFavorite: boolean;
+}
 
 export const HomeScreen = () => {
   const [data, setData] = useState([]);
-  // const [isLiked, setIsLiked] = useState(true);
+
+  const navigation = useNavigation();
 
   const unsplashApi = {
     getRandomPhotos: async (count = 100, query = "flowers") => {
@@ -71,17 +81,23 @@ export const HomeScreen = () => {
     background,
     thumbnail,
     isFavorite,
-  }) => {
+  }: ItemProps) => {
     const onFavoriteToggle = (id) => {
-      setData((prevData) => {
-        return prevData.map((item) =>
-          item.id === id ? { ...item, favorite: !item.favorite } : item
-        );
-      });
+      setData((prevData) =>
+        prevData.map((item) => {
+          if (item.id === id) {
+            item.favorite = !item.favorite;
+          }
+          return item;
+        })
+      );
     };
 
     return (
-      <ContentItem>
+      <ContentItem
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate("Favorite")}
+      >
         <ImageBackground
           source={{ uri: background }}
           resizeMode="cover"
@@ -124,8 +140,6 @@ export const HomeScreen = () => {
       </ContentItem>
     );
   };
-
-  console.log(data, "RESPONSE DATA");
 
   return (
     <Container>
