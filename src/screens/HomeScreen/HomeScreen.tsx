@@ -3,7 +3,7 @@ import { FlatList, ImageBackground, StyleSheet, View } from "react-native";
 import axios from "axios";
 import Icon from "react-native-vector-icons/Octicons";
 
-const ACCESS_KEY = "bE3s5LSJGhS9ahxeVe0OmekzZEXQi7y67Gp_trRR-PA"; // Replace with your Unsplash API access key
+const ACCESS_KEY = "bE3s5LSJGhS9ahxeVe0OmekzZEXQi7y67Gp_trRR-PA";
 
 import {
   Container,
