@@ -7,11 +7,12 @@ export const Container = styled.View`
 
 export const Header = styled.View`
   width: 100%;
-  height: 92px;
-  background-color: red;
+  height: 64px;
+  /* background-color: red; */
   padding-left: 24px;
   padding-right: 24px;
-  margin-top: 40px;
+  margin-top: 48px;
+  margin-bottom: 16px;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
@@ -21,7 +22,7 @@ export const Touchable = styled.TouchableOpacity`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: blue;
+  /* background-color: blue; */
   align-items: center;
   justify-content: center;
 `;
@@ -36,5 +37,25 @@ export const FakeView = styled.TouchableOpacity`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: blue;
+  /* background-color: blue; */
+`;
+
+export const ImageSmall = styled.Image`
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+`;
+
+export const ImageLarge = styled.Image`
+  width: 176px;
+  height: 360px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+`;
+
+export const Row = styled.View`
+  flex-direction: row;
+  /* background-color: blue; */
+  justify-content: space-around;
 `;
