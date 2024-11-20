@@ -1,0 +1,6 @@
+module Pods_ramdam_photos {
+  umbrella header "Pods-ramdam_photos-umbrella.h"
+
+  export *
+  module * { export * }
+}
