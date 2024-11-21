@@ -30,7 +30,12 @@ export const FavoriteScreen = () => {
       .collection("photos")
       .get()
       .then((item) => {
-        setData(item._docs);
+        const formatItem = item._docs.map((item) => ({
+          ...item,
+          id: item._ref._documentPath._parts[1],
+        }));
+
+        setData(formatItem);
 
         setTimeout(() => {
           setLoading(false);
@@ -38,7 +43,7 @@ export const FavoriteScreen = () => {
       });
   }, []);
 
-  console.log(data, "DATA");
+  // console.log(data, "DATA");
 
   const ItemOne = (uriOne, uriTwo) => (
     <View>

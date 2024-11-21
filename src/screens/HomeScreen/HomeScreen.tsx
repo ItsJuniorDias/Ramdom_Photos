@@ -1,5 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FlatList, ImageBackground, StyleSheet, View } from "react-native";
+import {
+  Alert,
+  FlatList,
+  ImageBackground,
+  StyleSheet,
+  View,
+} from "react-native";
 import axios from "axios";
 import Icon from "react-native-vector-icons/Octicons";
 import firestore from "@react-native-firebase/firestore";
@@ -111,6 +117,19 @@ export const HomeScreen = () => {
         id,
         background,
       });
+    } else {
+      Alert.alert(
+        "Limite excedido",
+        "Limite excedido de fotos adicionado aos favoritos ",
+        [
+          {
+            text: "Cancelar",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel",
+          },
+          { text: "OK", onPress: () => console.log("OK Pressed") },
+        ]
+      );
     }
   };
 
