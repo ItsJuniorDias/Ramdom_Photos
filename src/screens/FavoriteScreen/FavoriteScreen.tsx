@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, TouchableOpacity, View } from "react-native";
+import { Alert, ScrollView, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Octicons";
 import firestore from "@react-native-firebase/firestore";
 
@@ -26,11 +26,10 @@ export const FavoriteScreen = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    firestore()
+    const unsubscribe = firestore()
       .collection("photos")
-      .get()
-      .then((item) => {
-        const formatItem = item._docs.map((item) => ({
+      .onSnapshot((querySnapshot) => {
+        const formatItem = querySnapshot._docs.map((item) => ({
           ...item,
           id: item._ref._documentPath._parts[1],
         }));
@@ -41,13 +40,42 @@ export const FavoriteScreen = () => {
           setLoading(false);
         }, 2000);
       });
+
+    return () => unsubscribe();
   }, []);
 
-  // console.log(data, "DATA");
+  console.log(data, "DATA");
 
-  const ItemOne = (uriOne, uriTwo) => (
+  const deletePhotos = (id: string) => {
+    console.log(id, "ID");
+
+    Alert.alert("Excluir fotos", "Tem certeza que deseja excluir a foto ?", [
+      {
+        text: "Cancelar",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
+      },
+      {
+        text: "OK",
+        onPress: () => {
+          firestore()
+            .collection("photos")
+            .doc(`${id}`)
+            .delete()
+            .then(() => {
+              console.log("Photos deleted!");
+            });
+        },
+      },
+    ]);
+  };
+
+  const ItemOne = (uriOne, uriTwo, props) => (
     <View>
-      <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={() => deletePhotos(props.id)}
+      >
         <ImageSmall
           source={{
             uri: `${uriOne}`,
@@ -55,7 +83,10 @@ export const FavoriteScreen = () => {
         />
       </TouchableOpacity>
 
-      <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={() => deletePhotos(props.idOne)}
+      >
         <ImageSmall
           source={{
             uri: `${uriTwo}`,
@@ -65,9 +96,9 @@ export const FavoriteScreen = () => {
     </View>
   );
 
-  const ItemTwo = (uri: string) => (
+  const ItemTwo = (uri: string, id: string) => (
     <View>
-      <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+      <TouchableOpacity activeOpacity={0.7} onPress={() => deletePhotos(id)}>
         <ImageLarge
           source={{
             uri: `${uri}`,
@@ -126,26 +157,43 @@ export const FavoriteScreen = () => {
         {!loading && (
           <>
             <Row>
-              {ItemOne(data[0]._data.background, data[1]._data.background)}
+              {ItemOne(data[0]?._data?.background, data[1]?._data?.background, {
+                id: data[0]?.id,
+                idOne: data[1]?.id,
+              })}
 
-              {ItemTwo(data[2]._data.background)}
+              {ItemTwo(data[2]?._data?.background, data[2]?.id)}
             </Row>
 
             <Row>
-              {ItemOne(data[3]._data.background, data[4]._data.background)}
+              {ItemOne(data[3]?._data?.background, data[4]?._data?.background, {
+                id: data[3]?.id,
+                idOne: data[4]?.id,
+              })}
 
-              {ItemTwo(data[5]._data.background)}
+              {ItemTwo(data[5]?._data?.background, data[5]?.id)}
             </Row>
 
             <Row>
-              {ItemOne(data[6]._data.background, data[7]._data.background)}
+              {ItemOne(data[6]?._data?.background, data[7]?._data?.background, {
+                id: data[6]?.id,
+                idOne: data[7]?.id,
+              })}
 
-              {ItemTwo(data[8]._data.background)}
+              {ItemTwo(data[8]?._data?.background, data[8]?.id)}
             </Row>
-            <Row>
-              {ItemOne(data[9]._data.background, data[10]._data.background)}
 
-              {ItemTwo(data[11]._data.background)}
+            <Row>
+              {ItemOne(
+                data[9]?._data?.background,
+                data[10]?._data?.background,
+                {
+                  id: data[9]?.id,
+                  idOne: data[10]?.id,
+                }
+              )}
+
+              {ItemTwo(data[11]?._data?.background, data[11]?.id)}
             </Row>
           </>
         )}
