@@ -32,8 +32,22 @@ interface ItemProps {
 
 export const HomeScreen = () => {
   const [data, setData] = useState([]);
+  const [photos, setPhotos] = useState([]);
 
   const navigation = useNavigation();
+
+  const fetchPhotos = () => {
+    firestore()
+      .collection("photos")
+      .get()
+      .then((item) => {
+        setPhotos(item._docs);
+      });
+  };
+
+  useEffect(() => {
+    fetchPhotos();
+  }, []);
 
   const unsplashApi = {
     getRandomPhotos: async (count = 100, query = "flowers") => {
@@ -87,6 +101,19 @@ export const HomeScreen = () => {
       });
   };
 
+  const favoritePhotos = ({ id, onFavoriteToggle, background }) => {
+    if (photos.length <= 11) {
+      fetchPhotos();
+
+      onFavoriteToggle(id);
+
+      addDocument({
+        id,
+        background,
+      });
+    }
+  };
+
   const Item = ({
     id,
     title,
@@ -137,14 +164,13 @@ export const HomeScreen = () => {
               {!isFavorite ? (
                 <>
                   <TouchableLiked
-                    onPress={() => {
-                      onFavoriteToggle(id);
-
-                      addDocument({
+                    onPress={() =>
+                      favoritePhotos({
                         id,
+                        onFavoriteToggle,
                         background,
-                      });
-                    }}
+                      })
+                    }
                   >
                     <Icon name="heart" size={30} color="#fe034f" />
                   </TouchableLiked>
