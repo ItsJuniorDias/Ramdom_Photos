@@ -10,7 +10,7 @@ import axios from "axios";
 import Icon from "react-native-vector-icons/Octicons";
 import firestore from "@react-native-firebase/firestore";
 
-const ACCESS_KEY = "bE3s5LSJGhS9ahxeVe0OmekzZEXQi7y67Gp_trRR-PA";
+const ACCESS_KEY = "SDMQ6wVjs_rUmwLSQ1nyqhdPvZFBggeoCfeFAwi0I7s";
 
 import {
   Container,
