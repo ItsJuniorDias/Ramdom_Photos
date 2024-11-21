@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C6DF6BB82F43DD5179ADE3BAB5285BF2"
-               BuildableName = "libPods-ramdam_photos.a"
+               BuildableName = "Pods_ramdam_photos.framework"
                BlueprintName = "Pods-ramdam_photos"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

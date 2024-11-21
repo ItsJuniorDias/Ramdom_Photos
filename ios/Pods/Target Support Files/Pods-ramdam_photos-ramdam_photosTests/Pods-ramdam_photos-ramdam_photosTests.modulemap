@@ -1,4 +1,4 @@
-module Pods_ramdam_photos_ramdam_photosTests {
+framework module Pods_ramdam_photos_ramdam_photosTests {
   umbrella header "Pods-ramdam_photos-ramdam_photosTests-umbrella.h"
 
   export *

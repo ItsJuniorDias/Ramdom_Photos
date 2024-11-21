@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ramdam_photosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ramdam_photosTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-ramdam_photos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-ramdam_photos.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2417DDCB97AF48C79C79D1A3 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFA4588D8CB14262A220DB9F /* Nunito-Regular.ttf */; };
 		50AB1AEBA32F9C94CA8962F9 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		7699B88040F8A987B510C191 /* libPods-ramdam_photos-ramdam_photosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ramdam_photos-ramdam_photosTests.a */; };
 		7A6DA8B032D6434780A3A240 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC8E225D8496401E8B964F9B /* Roboto-Medium.ttf */; };
 		7C61BA53748547B39DBFD553 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB84C726E71A44F386DE8F51 /* Roboto-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A0043ED32FE4408FA74AFEE1 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9349FB00D51D40EDA84F6E00 /* Nunito-Medium.ttf */; };
 		A48C20464E2E468FA6EC088A /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD411FF079124F7A9EC837FB /* Nunito-Bold.ttf */; };
 		AA6F75B5A225442A86E68203 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F833D2D89D644C71868948CD /* Nunito-SemiBold.ttf */; };
+		BA2DD55E8B1F68261B866FE4 /* Pods_ramdam_photos_ramdam_photosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9CFF2ECE922C2323067D5A /* Pods_ramdam_photos_ramdam_photosTests.framework */; };
 		C4F22AA502CB464AA5204886 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28068DD09E454D5FBC474F24 /* Roboto-Bold.ttf */; };
+		E7A90D6BC8E408278E114B87 /* Pods_ramdam_photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3A60C070610BD3B2D3A0BB /* Pods_ramdam_photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +45,14 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ramdam_photos/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ramdam_photos/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ramdam_photos/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-ramdam_photos-ramdam_photosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ramdam_photos-ramdam_photosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28068DD09E454D5FBC474F24 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-ramdam_photos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ramdam_photos.debug.xcconfig"; path = "Target Support Files/Pods-ramdam_photos/Pods-ramdam_photos.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-ramdam_photos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ramdam_photos.release.xcconfig"; path = "Target Support Files/Pods-ramdam_photos/Pods-ramdam_photos.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-ramdam_photos-ramdam_photosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ramdam_photos-ramdam_photosTests.debug.xcconfig"; path = "Target Support Files/Pods-ramdam_photos-ramdam_photosTests/Pods-ramdam_photos-ramdam_photosTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-ramdam_photos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ramdam_photos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E3A60C070610BD3B2D3A0BB /* Pods_ramdam_photos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ramdam_photos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ramdam_photos/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-ramdam_photos-ramdam_photosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ramdam_photos-ramdam_photosTests.release.xcconfig"; path = "Target Support Files/Pods-ramdam_photos-ramdam_photosTests/Pods-ramdam_photos-ramdam_photosTests.release.xcconfig"; sourceTree = "<group>"; };
+		8A9CFF2ECE922C2323067D5A /* Pods_ramdam_photos_ramdam_photosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ramdam_photos_ramdam_photosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9349FB00D51D40EDA84F6E00 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Medium.ttf"; path = "../assets/fonts/Nunito-Medium.ttf"; sourceTree = "<group>"; };
 		CB84C726E71A44F386DE8F51 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		CC8E225D8496401E8B964F9B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-ramdam_photos-ramdam_photosTests.a in Frameworks */,
+				BA2DD55E8B1F68261B866FE4 /* Pods_ramdam_photos_ramdam_photosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-ramdam_photos.a in Frameworks */,
+				E7A90D6BC8E408278E114B87 /* Pods_ramdam_photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,8 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-ramdam_photos.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-ramdam_photos-ramdam_photosTests.a */,
+				5E3A60C070610BD3B2D3A0BB /* Pods_ramdam_photos.framework */,
+				8A9CFF2ECE922C2323067D5A /* Pods_ramdam_photos_ramdam_photosTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -617,6 +617,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
@@ -690,6 +701,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
