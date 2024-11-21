@@ -1,7 +1,8 @@
 # Ramdom_Photos
 🌹 Photo display app built with React Native 	
 
-![Captura de Tela 2024-11-21 às 15 05 41-side](https://github.com/user-attachments/assets/be626f4b-8dc4-4590-ab6b-176b5923722e)
+![Captura de Tela 2024-11-21 às 15 05 41-side](https://github.com/user-attachments/assets/ce880975-f6b0-49ca-a1ba-8c99bef1e22c)
+
 
 # Getting Started
 
