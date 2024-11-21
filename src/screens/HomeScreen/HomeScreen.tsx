@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { FlatList, ImageBackground, StyleSheet, View } from "react-native";
 import axios from "axios";
 import Icon from "react-native-vector-icons/Octicons";
+import firestore from "@react-native-firebase/firestore";
 
 const ACCESS_KEY = "bE3s5LSJGhS9ahxeVe0OmekzZEXQi7y67Gp_trRR-PA";
 
@@ -74,6 +75,18 @@ export const HomeScreen = () => {
     fetchPhotos();
   }, []);
 
+  const addDocument = ({ id, background }) => {
+    firestore()
+      .collection("photos")
+      .add({
+        id,
+        background,
+      })
+      .then(() => {
+        console.log("Photos added!");
+      });
+  };
+
   const Item = ({
     id,
     title,
@@ -123,7 +136,16 @@ export const HomeScreen = () => {
             <ContentLiked>
               {!isFavorite ? (
                 <>
-                  <TouchableLiked onPress={() => onFavoriteToggle(id)}>
+                  <TouchableLiked
+                    onPress={() => {
+                      onFavoriteToggle(id);
+
+                      addDocument({
+                        id,
+                        background,
+                      });
+                    }}
+                  >
                     <Icon name="heart" size={30} color="#fe034f" />
                   </TouchableLiked>
                 </>

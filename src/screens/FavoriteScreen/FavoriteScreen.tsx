@@ -1,6 +1,7 @@
-import React from "react";
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { ScrollView, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Octicons";
+import firestore from "@react-native-firebase/firestore";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -13,36 +14,74 @@ import {
   ImageSmall,
   ImageLarge,
   Row,
+  SkeletonLarge,
+  SkeletonSmall,
+  Column,
 } from "./styles";
 
 export const FavoriteScreen = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const navigation = useNavigation();
+
+  useEffect(() => {
+    firestore()
+      .collection("photos")
+      .get()
+      .then((item) => {
+        setData(item._docs);
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+      });
+  }, []);
+
+  console.log(data, "DATA");
 
   const ItemOne = (uriOne, uriTwo) => (
     <View>
-      <ImageSmall
-        source={{
-          uri: `${uriOne}`,
-        }}
-      />
+      <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+        <ImageSmall
+          source={{
+            uri: `${uriOne}`,
+          }}
+        />
+      </TouchableOpacity>
 
-      <ImageSmall
-        source={{
-          uri: `${uriTwo}`,
-        }}
-      />
+      <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+        <ImageSmall
+          source={{
+            uri: `${uriTwo}`,
+          }}
+        />
+      </TouchableOpacity>
     </View>
   );
 
   const ItemTwo = (uri: string) => (
     <View>
-      <ImageLarge
-        source={{
-          uri: `${uri}`,
-        }}
-      />
+      <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+        <ImageLarge
+          source={{
+            uri: `${uri}`,
+          }}
+        />
+      </TouchableOpacity>
     </View>
   );
+
+  const skeletonOne = () => {
+    <View>
+      <SkeletonSmall />
+      <SkeletonSmall />
+    </View>;
+  };
+
+  const skeletonTwo = () => {
+    <View></View>;
+  };
 
   return (
     <Container>
@@ -56,28 +95,55 @@ export const FavoriteScreen = () => {
         <FakeView />
       </Header>
 
+      {loading && (
+        <ScrollView>
+          <Row>
+            <Column>
+              <SkeletonSmall />
+              <SkeletonSmall />
+            </Column>
+
+            <SkeletonLarge />
+          </Row>
+
+          <Row>
+            <Column>
+              <SkeletonSmall />
+              <SkeletonSmall />
+            </Column>
+
+            <SkeletonLarge />
+          </Row>
+        </ScrollView>
+      )}
+
       <ScrollView>
-        <Row>
-          {ItemOne(
-            "https://plus.unsplash.com/premium_photo-1712935549387-ccef1d923d51?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cm9zYXMlMjBhcGl8ZW58MHx8MHx8fDA%3D",
-            "https://plus.unsplash.com/premium_photo-1676070096491-6cfc8e775840?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cm9zYXMlMjBhcGl8ZW58MHx8MHx8fDA%3D"
-          )}
+        {!loading && (
+          <>
+            <Row>
+              {ItemOne(data[0]._data.background, data[1]._data.background)}
 
-          {ItemTwo(
-            "https://images.unsplash.com/photo-1731575115709-d4325615e868?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
-          )}
-        </Row>
+              {ItemTwo(data[2]._data.background)}
+            </Row>
 
-        <Row>
-          {ItemOne(
-            "https://images.unsplash.com/photo-1579591040171-21b4f3058005?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHJvc2FzfGVufDB8fDB8fHww",
-            "https://images.unsplash.com/photo-1658303751525-ba73838b3357?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHJvc2FzfGVufDB8fDB8fHww"
-          )}
+            <Row>
+              {ItemOne(data[3]._data.background, data[4]._data.background)}
 
-          {ItemTwo(
-            "https://images.unsplash.com/photo-1538523396059-8145b69118c4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHJvc2FzJTIwYXBpfGVufDB8fDB8fHww"
-          )}
-        </Row>
+              {ItemTwo(data[5]._data.background)}
+            </Row>
+
+            <Row>
+              {ItemOne(data[6]._data.background, data[7]._data.background)}
+
+              {ItemTwo(data[8]._data.background)}
+            </Row>
+            <Row>
+              {ItemOne(data[9]._data.background, data[10]._data.background)}
+
+              {ItemTwo(data[11]._data.background)}
+            </Row>
+          </>
+        )}
       </ScrollView>
     </Container>
   );

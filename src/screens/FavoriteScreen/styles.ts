@@ -54,8 +54,28 @@ export const ImageLarge = styled.Image`
   margin-bottom: 16px;
 `;
 
+export const SkeletonSmall = styled.View`
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  background-color: #b7b7b7;
+`;
+
+export const SkeletonLarge = styled.View`
+  width: 176px;
+  height: 360px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  background-color: #b7b7b7;
+`;
+
 export const Row = styled.View`
   flex-direction: row;
   /* background-color: blue; */
   justify-content: space-around;
+`;
+
+export const Column = styled.View`
+  flex-direction: column;
 `;
